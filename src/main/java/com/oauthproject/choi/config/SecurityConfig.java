@@ -48,6 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutSuccessUrl("/test1")
                 .and()
                 .oauth2Login().userInfoEndpoint().userService(customOAuth2UserService);
+
     }
 
 
