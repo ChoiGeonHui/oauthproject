@@ -35,9 +35,6 @@ spring:
               - profile
               - email
 
-  profiles:
-    include: oauth
-
 
 server:
   port: 8008

@@ -3,11 +3,13 @@ package com.oauthproject.choi.domain;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.apache.ibatis.type.Alias;
 
 @Alias("user")
 @Data
 @EqualsAndHashCode(callSuper=false)
+@NoArgsConstructor
 public class User {
 
     private Long seq;

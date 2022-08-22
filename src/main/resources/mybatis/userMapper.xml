@@ -11,7 +11,10 @@
 
 
     <select id="findByEmail" resultMap="userResult">
-        select SEQ, NAME,ROLE
+        select SEQ,
+               NAME,
+               EMAIL,
+               ROLE
         from user
         where EMAIL = #{email}
     </select>

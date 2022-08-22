@@ -19,18 +19,18 @@
 
 
     <div class="container text-center">
-<%--        <div>--%>
-<%--            <b>${user.seq}</b>--%>
-<%--        </div>--%>
+        <div>
+            <b>${user.seq}</b>
+        </div>
         <div>
             <b>${user.name}</b>
         </div>
         <div>
             <b>${user.email}</b>
         </div>
-<%--        <div>--%>
-<%--            <b>${user.role.title}</b>--%>
-<%--        </div>--%>
+        <div>
+            <b>${user.role.title}</b>
+        </div>
         <a href="/logout" class="btn btn-info active mt-5" role="button">Logout</a>
     </div>
 
