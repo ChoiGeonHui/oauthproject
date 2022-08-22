@@ -27,6 +27,7 @@
             <div><input type="button" class="btn btn-success mt-2 col-12" value="로그인"></div>
             <div><input type="button" class="btn btn-secondary mt-2 col-12" value="회원가입"></div>
             <div><a href="/oauth2/authorization/google" class="btn btn-primary active col-12 mt-2" role="button">Google Login</a></div>
+            <div><a href="/oauth2/authorization/kakao" class="btn btn-warning col-12 mt-2" role="button">Kakao Login</a></div>
         </div>
 
     </div>
