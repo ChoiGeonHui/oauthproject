@@ -1,0 +1,46 @@
+logging:
+  level:
+    org:
+      springframework: debug
+      objectweb: debug
+
+      root: info
+      com.oauthproject.choi: debug
+
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.1.84/adnstyle_web?useSSL=false&allowMultiQueries=true
+    username: adnstyle
+    password: "!adnstylewebDB"
+
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern:  /static/**
+
+  security:
+    user:
+      name: user
+      password: 1234
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 745491787039-461klkra8odj8oc7eg08p6ku1d366cii.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - profile
+              - email
+
+  profiles:
+    include: oauth
+
+
+server:
+  port: 8008
+
+mybatis:
+  mapper-locations: mybatis/**/*Mapper.xml
