@@ -14,10 +14,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final CustomOAuth2UserService customOAuth2UserService;
 
-    public SecurityConfig(CustomOAuth2UserService customOAuth2UserService){
+    public SecurityConfig(CustomOAuth2UserService customOAuth2UserService) {
         this.customOAuth2UserService = customOAuth2UserService;
     }
-
 
 
     @Override
@@ -42,19 +41,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/test/**",
                         "/test1/**")
                 .permitAll()
-                .antMatchers("/admin/**")
-                .hasRole(Role.ADMIN.name()) //사용자 등급별 웹페이지 접근 권한
+                .antMatchers("/admin/**").hasRole(Role.ADMIN.name()) //사용자 등급별 웹페이지 접근 권한
+                .antMatchers("/user/**").hasRole(Role.USER.name()) //사용자 등급별 웹페이지 접근 권한
                 .anyRequest().authenticated()
                 .and()
                 .logout()
                 .logoutSuccessUrl("/test1")
                 .and()
-                .oauth2Login().
-                userInfoEndpoint().
-                userService(customOAuth2UserService);
+                .exceptionHandling()
+                .accessDeniedPage("/accessDenied_page") /**권한이 없는 대상이 접속을 시도 했을 때*/
+                .and()
+                .oauth2Login()
+                .userInfoEndpoint()
+                .userService(customOAuth2UserService);
 
     }
-
 
 
 }

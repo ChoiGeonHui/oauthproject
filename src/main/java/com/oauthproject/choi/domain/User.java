@@ -8,7 +8,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("user")
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 public class User {
 
@@ -19,14 +19,14 @@ public class User {
 
 
     @Builder
-    public User(String name,String email,Role role){
+    public User(String name, String email, Role role) {
         this.name = name;
         this.email = email;
         this.role = role;
 
     }
 
-    public String getRoleKey(){
+    public String getRoleKey() {
         return this.role.getKey();
     }
 

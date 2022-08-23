@@ -26,8 +26,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     private final HttpSession httpSession;
 
     @Override
-    public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException{
-        OAuth2UserService<OAuth2UserRequest,OAuth2User> delegate = new DefaultOAuth2UserService();
+    public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+        OAuth2UserService<OAuth2UserRequest, OAuth2User> delegate = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
         //현재 로그인 진행 중인 서비스를 구분하는 코드
         String registrantonId = userRequest
@@ -39,10 +39,10 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                 .getUserInfoEndpoint()
                 .getUserNameAttributeName();
         OAuthAttributes attributes = OAuthAttributes
-                .of(registrantonId,userNameAttributeName,oAuth2User.getAttributes());
+                .of(registrantonId, userNameAttributeName, oAuth2User.getAttributes());
 
         User user = saveOrUdate(attributes);
-        httpSession.setAttribute("user",new SessionUser(user));
+        httpSession.setAttribute("user", new SessionUser(user));
         return new DefaultOAuth2User(
                 Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
                 attributes.getAttributes(),
@@ -51,7 +51,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     }
 
-    private User saveOrUdate(OAuthAttributes attributes){
+    private User saveOrUdate(OAuthAttributes attributes) {
         User user;
         if (userRepository.findByEmail(attributes.getEmail()) != null) {
             user = userRepository.findByEmail(attributes.getEmail());

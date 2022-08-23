@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>List</title>
+    <title>access</title>
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -19,21 +16,9 @@
 
 
     <div class="container text-center mt-5">
-        <div>
-            <b>${user.seq}</b>
-        </div>
-        <div>
-            <b>${user.name}</b>
-        </div>
-        <div>
-            <b>${user.email}</b>
-        </div>
-        <div>
-            <b>${user.role.title}</b>
-        </div>
-        <a href="/logout" class="btn btn-info active mt-5" role="button">Logout</a>
+        <h3>해당 페이지에 접근 권한이 없습니다.</h3>
+        <a href="/" class="btn btn-secondary">돌아가기</a>
     </div>
-
 
 
 

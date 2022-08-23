@@ -11,7 +11,6 @@ public class SessionUser implements Serializable {
 
     private Long seq;
     private String name, email;
-
     private Role role;
 
     public SessionUser(User user) {

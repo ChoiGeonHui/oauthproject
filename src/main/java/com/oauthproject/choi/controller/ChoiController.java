@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 @Controller
 public class ChoiController {
@@ -17,7 +15,7 @@ public class ChoiController {
 
     @ResponseBody
     @RequestMapping("/test")
-    public String test(){
+    public String test() {
 
         int i = 0;
         i = choiService.selectCount();
@@ -27,21 +25,31 @@ public class ChoiController {
 
 
     @RequestMapping("/test1")
-    public String testjsp(){
+    public String testjsp() {
         return "test";
     }
 
 
     @ResponseBody
     @RequestMapping("/admin")
-    public String adminPage(){
+    public String adminPage() {
         return "adminPage : success";
     }
 
+    @ResponseBody
+    @RequestMapping("/user")
+    public String userPage() {
+        return "userPage : success";
+    }
+
     @RequestMapping("/")
-    public String list(){
+    public String list() {
         return "list";
     }
 
+    @RequestMapping("accessDenied_page")
+    public String accessDeniedPage() {
+        return "access";
+    }
 
 }
