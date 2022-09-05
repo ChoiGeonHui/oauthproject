@@ -42,7 +42,7 @@ public class ChoiController {
         return "userPage : success";
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/list")
     public String list() {
         return "list";
     }
